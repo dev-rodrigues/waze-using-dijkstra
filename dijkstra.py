@@ -1,7 +1,8 @@
 import heapq
 
+
 def dijkstra(grafo, inicio, fim):
-    bairros = {b.nome: b for b in grafo}
+    bairros = grafo.keys()
 
     distancias = {nome: float('inf') for nome in bairros}
 
@@ -17,10 +18,10 @@ def dijkstra(grafo, inicio, fim):
 
         if distancia_atual > distancias[nome_atual]:  # se a distância atual é maior que a distância registrada, ignora
             continue
-        bairro_atual = bairros[nome_atual]  # pega o objeto Bairro correspondente ao nome
+        bairro_atual = grafo[nome_atual]  # pega o objeto Bairro correspondente ao nome
 
         for vizinho_nome in bairro_atual.obter_vizinhos():
-            vizinho = bairros[vizinho_nome]  # pega o objeto Bairro correspondente ao nome
+            vizinho = grafo[vizinho_nome]  # pega o objeto Bairro correspondente ao nome
 
             peso = bairro_atual.obter_peso(vizinho)  # pega o peso da aresta
 
