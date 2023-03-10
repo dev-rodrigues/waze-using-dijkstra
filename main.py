@@ -1,11 +1,10 @@
 import pygame
-import time
 
 from dijkstra import dijkstra
 from domain.fixture import get_bairros
 
-largura_tela = 800
-altura_tela = 600
+largura_tela = 1024
+altura_tela = 800
 
 terminou = False
 
@@ -47,6 +46,7 @@ def destaca_melhor_caminho(bairros, caminho):
             (bairros[proximo].x, bairros[proximo].y),
             5
         )
+        # pygame.time.wait(2000) # Delay de 100 milissegundos
 
 
 while not terminou:
@@ -61,11 +61,10 @@ while not terminou:
 
     pygame.display.update()
 
-    # encontra caminho e distancia
     (caminho, melhor_caminho) = dijkstra(
         bairros,
         bairros["Ipanema"],
-        bairros["Centro"]
+        bairros["Catete"]
     )
 
     destaca_melhor_caminho(bairros, melhor_caminho)
