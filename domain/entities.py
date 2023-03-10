@@ -1,8 +1,10 @@
 
 
 class Bairro:
-    def __init__(self, nome):
+    def __init__(self, nome, x, y):
         self.nome = nome
+        self.x = x
+        self.y = y
         self.vizinhos = {}
 
     def adicionar_vizinho(self, vizinho, peso=0):
